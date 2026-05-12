@@ -1,0 +1,62 @@
+{%extends "layout.html" %}
+
+{% block content %}
+{% comment %} <h2> Login form </h2>
+
+<form method = "POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button class="btn btn-primary">Register</button>
+</form>  {% endcomment %}
+
+
+{% comment %} if user login without register then redirect on Registerform (Eis line ke upr vali line phle ka code hai aur bad ka 2 line hai ) {% endcomment %}
+
+
+ {% comment %} <p> You don't have account?<a href="{% url 'register' %}"> Register here </a></p> 
+
+{% endblock %}  {% endcomment %}
+
+
+{% comment %} ############################################################################################# {% endcomment %}
+
+
+
+ <div class="d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+  <div class="card shadow-lg p-4 rounded-4" style="max-width: 400px; width: 100%; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); color: #f1f1f1;">
+    <h2 class="text-center mb-4 fw-bold text-info">Login to Sachan Tweets</h2>
+    
+    <form method="POST" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      
+      <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+    </form>
+    
+    <p class="mt-4 text-center text-muted">
+      Don't have an account? 
+      <a href="{% url 'register' %}" class="text-info text-decoration-none fw-semibold">Register here</a>
+    </p>
+  </div>
+</div>
+
+<style>
+  input.form-control {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #f1f1f1;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  input.form-control:focus {
+    background: rgba(255, 255, 255, 0.3);
+    color: #000;
+    outline: none;
+    box-shadow: 0 0 8px #00c6ff;
+  }
+  label {
+    font-weight: 600;
+  }
+</style>
+{% endblock %} 

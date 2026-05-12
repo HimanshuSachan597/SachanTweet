@@ -1,0 +1,29 @@
+ {% extends "layout.html" %}
+
+{% block title %}
+Sachan Tweets
+{% endblock %}
+
+{% block content %} 
+<h1 class="text-center mt-4"> Welcome to Sachan tweets(create form)</h1>
+<h3> 
+    {% if form.instance.pk %}   {% comment %} agr instance prymarykey ka hai to Edit create hoga otherwise Create form {% endcomment %}
+    Edit tweet 
+    {%else %}
+    Create tweet
+    {% endif %}
+
+     <form method="post" enctype="multipart/form-data"    
+    class="form">
+    {% csrf_token %}
+
+    {{ form.as_p}}
+
+    {% comment %} below create a button for Submiting the form , and again <a> tag use for go back to tweet list {% endcomment %}
+
+<button class=" btn btn-warning" type ="submit"> submit</button>
+</form>
+<a href="{% url 'tweet_list' %}"> Back to tweet list</a>    
+
+</h3>
+{% endblock %} 

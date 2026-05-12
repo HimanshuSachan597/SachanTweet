@@ -1,0 +1,13 @@
+ <h2>{{ profile_user.username }}'s Profile</h2>
+<hr>
+
+{% for tweet in tweets %}
+    <p>{{ tweet.text }}</p>
+    {% if tweet.photo %}
+        <img src="{{ tweet.photo.url }}" width="200">
+    {% endif %}
+    <small>Posted at: {{ tweet.create_at }}</small>
+    
+    <hr>
+{% endfor %} 
+

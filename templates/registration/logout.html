@@ -1,0 +1,10 @@
+{%extends "layout.html" %}
+
+{% block content %}
+<h2> Logout</h2>
+
+
+{% comment %} if user login without register then redirect on Registerform  {% endcomment %}
+<p> You have been logged out <a href="{% url 'login' %}"> login here </a></p> 
+
+{% endblock %}

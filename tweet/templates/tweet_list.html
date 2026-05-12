@@ -1,0 +1,40 @@
+ {% extends "layout.html" %}
+
+{% block title %}
+Sachan Tweets
+{% endblock %}
+
+{% block content %} 
+{% comment %} <h1 class="text-center mt-5" > Welcome to Sachan tweets</h1> {% endcomment %}
+<h1 class="text-center mt-5 fw-bold" style="background: linear-gradient(45deg, #ff00aeff, #ffff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+  Welcome to Sachan Tweets
+</h1>
+
+
+<a  class="btn btn-primary mb-4"href="{% url  'tweet_create' %}"> Create new tweet </a> 
+
+<div class=" container row gap-3" >
+{% for tweet in tweets %}
+
+<div class="card" style="width: 18rem;">
+  <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+  <h5 class="card-title"><a href="{% url 'profile_view' tweet.user.username %}">{{ tweet.user.username}}</a></h5>
+    <p class="card-text">{{tweet.text}}</p>
+
+{% comment %} jb hm ke use user ke tweet me kevl delete aur Edit ka option dekhana chle tb (below) {% endcomment %}
+
+    {% if tweet.user == user %}    
+   <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+
+{% endif %}
+
+  </div>
+</div>
+ {% endfor %}
+     </div>
+
+
+
+{% endblock %}

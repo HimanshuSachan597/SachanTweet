@@ -1,0 +1,61 @@
+
+{% extends 'layout.html' %}
+{% block title %}About - Sachan Tweets{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="glass-card p-4 h-100">
+        <h4 class="mb-3"> Our Mission</h4>
+        <p>We aim to build a simple yet powerful platform where people can share their thoughts freely, respectfully, and safely.</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="glass-card p-4 h-100">
+        <h4 class="mb-3"> Features</h4>
+        <ul class="list-unstyled">
+          <li> Easy tweet creation</li>
+          <li> Clean UI & UX</li>
+          <li> Authentication system</li>
+          <li> Responsive design</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="glass-card p-4 text-center">
+        <h4>💬 Want to contribute or report issues?</h4>
+        <p>We’re open to ideas! Contact us or fork the project on GitHub.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .text-gradient {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    color: #f1f1f1;
+    transition: transform 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-5px);
+  }
+
+  ul li {
+    margin-bottom: 8px;
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Profile - {{ profile_user.username }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>{{ profile_user.username }}'s Profile</h2>
+  <p>Email: {{ profile_user.email }}</p>
+
+  <h3 class="mt-4">Tweets by {{ profile_user.username }}</h3>
+  <div class="row gap-3">
+    {% for tweet in tweets %}
+    <div class="card" style="width: 18rem;">
+      {% if tweet.photo %}
+      <img src="{{ tweet.photo.url }}" class="card-img-top" alt="...">
+      {% endif %}
+      <div class="card-body">
+        <p class="card-text">{{ tweet.text }}</p>
+        <p class="text-muted small">{{ tweet.create_at }}</p>
+      </div>
+    </div>
+    {% empty %}
+    <p>No tweets yet.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
